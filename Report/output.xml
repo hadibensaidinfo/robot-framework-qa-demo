@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1 (Python 3.10.6 on win32)" generated="20231219 12:06:24.955" rpa="false" schemaversion="4">
+<suite id="s1" name="Test1" source="E:\hadibensaidinfo-robot-framework-qa-demo-main\Tests\Test1.robot">
+<test id="s1-t1" name="En Tant qu'utilisateur je peux me connecter au site" line="7">
+<kw name="Ouvrir Le Navigateur" library="LoginPage">
+<doc>Cette Keyword permet d'ouvrir le navigateur et vérifier que L'url est ouvert</doc>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>url=https://${remote_url}</arg>
+<arg>browser=${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231219 12:06:25.216" level="INFO">Opening browser 'Chrome' to base url 'https://opensource-demo.orangehrmlive.com'.</msg>
+<status status="PASS" starttime="20231219 12:06:25.215" endtime="20231219 12:06:27.347"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>class:orangehrm-login-slot</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231219 12:06:27.347" endtime="20231219 12:06:30.384"/>
+</kw>
+<status status="PASS" starttime="20231219 12:06:25.214" endtime="20231219 12:06:30.384"/>
+</kw>
+<kw name="Saisie Identifiant" library="LoginPage">
+<arg>${userName}</arg>
+<arg>${password}</arg>
+<doc>Cette Keyword permet de remplir le champs d'identifient
+userName(String): C'est variable possède le valeur d'email
+password(String): C'est variable possède le valeur de mot de passe</doc>
+<kw name="Saisir L'Email" library="LoginPage">
+<arg>${userName}</arg>
+<doc>Cette Keyword permet de remplir le champs Email
+userName(String): C'est variable possède le valeur d'email</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${champsDeIdentifiernt}</arg>
+<arg>${userName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231219 12:06:30.388" level="INFO">Typing text 'Admin' into text field 'css:[name="username"]'.</msg>
+<status status="PASS" starttime="20231219 12:06:30.388" endtime="20231219 12:06:30.539"/>
+</kw>
+<status status="PASS" starttime="20231219 12:06:30.387" endtime="20231219 12:06:30.540"/>
+</kw>
+<kw name="Saisir Le Mot De Passe" library="LoginPage">
+<arg>${password}</arg>
+<doc>Cette Keyword permet de remplir le champs Mot de passe
+password(String): C'est variable possède le valeur de mot de passe</doc>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${ChampsDeModeDePasse}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20231219 12:06:30.541" level="INFO">Typing password into text field 'css:[name="password"]'.</msg>
+<msg timestamp="20231219 12:06:30.589" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231219 12:06:30.682" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231219 12:06:30.540" endtime="20231219 12:06:30.682"/>
+</kw>
+<status status="PASS" starttime="20231219 12:06:30.540" endtime="20231219 12:06:30.682"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${boutonDeLogin}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231219 12:06:30.685" level="INFO">Clicking element 'class:orangehrm-login-button'.</msg>
+<status status="PASS" starttime="20231219 12:06:30.685" endtime="20231219 12:06:31.722"/>
+</kw>
+<status status="PASS" starttime="20231219 12:06:30.387" endtime="20231219 12:06:31.722"/>
+</kw>
+<kw name="Asserter Que La Login Effectuer Avec Success" library="LoginPage">
+<doc>Cette Keyword permet de vérifier que l'utilisateur est bien connecté</doc>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>https://${remote_url}/web/index.php/dashboard/index</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20231219 12:06:31.729" level="INFO">Current location is 'https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index'.</msg>
+<status status="PASS" starttime="20231219 12:06:31.723" endtime="20231219 12:06:31.729"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${menuSideBar}</arg>
+<arg>error=Le Menu n'est pas affiché</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231219 12:06:31.729" endtime="20231219 12:06:32.031"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${cardUser}</arg>
+<arg>error=L'utilisateur n'est pas connecté</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231219 12:06:32.031" endtime="20231219 12:06:32.052"/>
+</kw>
+<status status="PASS" starttime="20231219 12:06:31.723" endtime="20231219 12:06:32.052"/>
+</kw>
+<doc>C'est Test permet d'asserter La Login succueful</doc>
+<status status="PASS" starttime="20231219 12:06:25.214" endtime="20231219 12:06:32.053"/>
+</test>
+<status status="PASS" starttime="20231219 12:06:24.956" endtime="20231219 12:06:32.054"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Test1">Test1</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
