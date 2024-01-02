@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation       Communs
+Documentation       Cette Interface possède les différents keywords pour l'interface Authentification
 
 Library             SeleniumLibrary    implicit_wait=5s
 Variables           Localisateur/LoginPage.py
@@ -25,6 +25,11 @@ Asserter Que La Login Effectuer Avec Success
     Location Should Be    https://${remote_url}/web/index.php/dashboard/index
     Wait Until Element Is Visible    ${menuSideBar}    error=Le Menu n'est pas affiché
     Wait Until Element Is Visible    ${cardUser}    error=L'utilisateur n'est pas connecté
+
+Asserter L'affichage De Message D'erreur
+    [Documentation]    Cette Keyword permet de vérifier que l'utilisateur n'est pas connecté
+    Location Should Be    https://${remote_url}/web/index.php/auth/login
+    Wait Until Element Is Visible    ${alertError}    error=Le Message d'erreur n'est pas affiché
 
 Saisir L'Email
     [Documentation]    Cette Keyword permet de remplir le champs Email
